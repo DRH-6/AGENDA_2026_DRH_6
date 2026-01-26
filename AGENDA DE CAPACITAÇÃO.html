@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Divulgação da Agenda de Cursos – DRH-6</title>
+
+<style>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f6f8;
+    margin:20px;
+}
+
+h1{
+    color:#003366;
+    margin-bottom:5px;
+}
+
+h2{
+    color:#555;
+    font-size:16px;
+    margin-top:0;
+    margin-bottom:20px;
+}
+
+.container{
+    background:#fff;
+    padding:15px;
+    border-radius:6px;
+    box-shadow:0 0 6px rgba(0,0,0,0.1);
+}
+
+.filters{
+    display:flex;
+    gap:15px;
+    margin-bottom:10px;
+    flex-wrap:wrap;
+}
+
+input, select{
+    padding:6px;
+    font-size:14px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13px;
+}
+
+th{
+    background:#003366;
+    color:#fff;
+    padding:6px;
+    border:1px solid #ccc;
+    text-align:left;
+}
+
+td{
+    padding:6px;
+    border:1px solid #ccc;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+.pagination{
+    margin-top:10px;
+    text-align:center;
+}
+
+.pagination button{
+    padding:5px 10px;
+    margin:2px;
+    border:1px solid #003366;
+    background:#fff;
+    cursor:pointer;
+}
+
+.pagination button.active{
+    background:#003366;
+    color:#fff;
+}
+
+.obs{
+    margin-top:20px;
+    padding-top:10px;
+    border-top:2px solid #003366;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🔹 TÍTULO E SUBSEÇÃO -->
+<h1>AGENDA DE CAPACITAÇÃO GAP-LS 2026</h1>
+<h2>Subseção de Instrução e Capacitação (DRH-6)</h2>
+
+<div class="container">
+
+<div class="filters">
+    <input type="text" id="searchInput" placeholder="Buscar curso...">
+    <select id="monthFilter">
+        <option value="">Filtrar mês limite matrícula</option>
+        <option value="01">Janeiro</option>
+        <option value="02">Fevereiro</option>
+        <option value="03">Março</option>
+        <option value="04">Abril</option>
+        <option value="05">Maio</option>
+        <option value="06">Junho</option>
+        <option value="07">Julho</option>
+        <option value="08">Agosto</option>
+        <option value="09">Setembro</option>
+        <option value="10">Outubro</option>
+        <option value="11">Novembro</option>
+        <option value="12">Dezembro</option>
+    </select>
+</div>
+
+<table id="courseTable">
+<thead>
+<tr>
+<th>ODGSA</th>
+<th>Código</th>
+<th>Nome</th>
+<th>Local</th>
+<th>Área</th>
+<th>Responsável</th>
+<th>Turma</th>
+<th>Início</th>
+<th>Término</th>
+<th>Status SGC</th>
+<th>Limite Indicações</th>
+</tr>
+</thead>
+<tbody>
+<!-- DADOS -->
+</tbody>
+</table>
+<br>
+<div class="orientacao">
+<strong>Orientação:</strong><br>
+Havendo interesse em algum dos cursos, o militar ou servidor deverá, previamente, consultar seu gestor imediato.
+Após a devida aprovação, deverá preencher a <strong>Ficha de Indicação para Capacitação (FIC)</strong>,
+disponível no link:<br>
+<a href="https://docs.google.com/document/d/1W1-kYmIo5o9FuX8tyXlIkDL7VsACXTo93J6iKi2OlQg/edit?usp=sharing" target="_blank">
+https://docs.google.com/document/d/1W1-kYmIo5o9FuX8tyXlIkDL7VsACXTo93J6iKi2OlQg/edit?usp=sharing
+</a><br><br>
+Em seguida, deverá encaminhar requerimento à <strong>DRH-6</strong>, por meio do <strong>SIGADAER</strong>,
+solicitando autorização para o prosseguimento do processo de indicação de matrícula.
+</div>
+
+<!-- OBSERVAÇÃO / CONTATOS (ÚLTIMO BLOCO DA PÁGINA) -->
+<div class="obs">
+<strong>Observação:</strong><br>
+📍Em caso de dúvidas, entrar em contato com:<br>
+• 2T Daniele Campos – 2112-9557<br>
+• 3S Nathália Amaral – 2112-9534<br>
+• 3S Lorrayne Mel – 2112-9574
+</div>
+
+</div>
+
+<script>
+const rowsPerPage = 10;
+let currentPage = 1;
+
+const data = [
+["DECEA","APH004","CAPACITAÇÃO E RECICLAGEM EM SEGURANÇA PARA TRABALHO EM ALTURA DO SISCEAB - NÍVEL 1","DTCEAPCO","SDAD-AIN","CINDACTA I","1","17/03/2026","19/03/2026","INSC. ABERTAS","26/01/2026"],
+["COMGEP","CCEAD","CURSO DE CONTEUDISTA PARA EAD","EAD","COMGEP","CIAAR","1","02/03/2026","22/05/2026","INSC. ABERTAS","26/01/2026"],
+["COMGEP","CAMEAD","CURSO AVANÇADO DE MÍDIAS","EAD","SDAD-CTP","CIAAR","1","16/03/2026","31/05/2026","INSC. ABERTAS","30/01/2026"],
+["COMGEP","CPG","CURSO DE PSICÓLOGO DE GUARNIÇÃO","EAD","COMGEP","IPA","1","02/03/2026","31/03/2026","INSC. ABERTAS","30/01/2026"],
+["COMGEP","CPT","CURSO DE PREPARAÇÃO DE TUTORES","EAD","COMPREP","CIAAR","1","23/03/2026","22/05/2026","INSC. ABERTAS","30/01/2026"],
+["DECEA","CTP006","CAPACITAÇÃO PARA INSTRUÇÃO PRÁTICA","DTCEASM","SDAD-CTP","CINDACTA II","5","23/03/2026","03/04/2026","INSC. ABERTAS","01/02/2026"],
+["DECEA","SEL011","SEGURANÇA EM INSTALAÇÕES E SERVIÇOS COM ELETRICIDADE","1/1 GCC","SDTE-TMEM","1 GCC","1","23/03/2026","27/03/2026","INSC. ABERTAS","01/02/2026"],
+["DECEA","SEL011","SEGURANÇA EM INSTALAÇÕES E SERVIÇOS COM ELETRICIDADE","CINDACTA II","SDTE-TMEM","CINDACTA II","2","23/03/2026","27/03/2026","INSC. ABERTAS","01/02/2026"],
+["COMGEP","PCP – para psicólogos","CURSO BÁSICO DE PRIMEIROS CUIDADOS PSICOLÓGICOS EM ACIDENTES, EMERGÊNCIAS E DESASTRES – PARA PSICÓLOGOS","Rio de Janeiro","COMGEP","IPA","1","06/04/2026","17/04/2026","INSC. ABERTAS","06/02/2026"],
+["COMGEP","CATF","CURSO PARA APLICAÇÃO DO TESTE DE CONDICIONAMENTO FÍSICO","EAD/CIAAR","COMGEP","CDA","3","27/04/2026","15/05/2026","PROGRAMADO","06/02/2026"],
+["COMGEP","CPEAMS","CURSO DE PREVENÇÃO E ENFRENTAMENTO AO ASSÉDIO MORAL E SEXUAL","EAD","COMGEP","DIRENS","1","06/04/2026","20/04/2026","INSC. ABERTAS","13/02/2026"],
+["DECEA","AIS011","CURSO DE APERFEIÇOAMENTO NA GESTÃO DA INFORMAÇÃO AERONÁUTICA","ICEA","SDOP-AIS","ICEA","1","06/04/2026","17/04/2026","INSC. ABERTAS","15/02/2026"],
+["DECEA","ASE009S","GERENCIAMENTO DO RISCO À SEGURANÇA OPERACIONAL NO SISCEAB","ICEAVIRTUAL/ICEA/ICEA","DECEA-ASEG","ICEA","1","06/04/2026","15/05/2026","INSC. ABERTAS","15/02/2026"],
+["COMGEP","CAEF","CURSO DE CAPACITAÇÃO EM EDUCAÇÃO FINANCEIRA","EAD","N/D","DIRAP","1","13/04/2026","15/05/2026","PROGRAMADO","27/02/2026"],
+["COMGEP","CIAD","CURSO DE INTELIGÊNCIA ARTIFICIAL PARA DOCENTES","EAD","COMGEP","CIAAR","1","25/05/2026","09/08/2026","PROGRAMADO","16/03/2026"],
+["COMGEP","CPAv","CURSO DE PSICOLOGIA DA AVIAÇÃO","EAD/COMGEP","COMGEP","IPA","1","04/12/2025","31/07/2026","PROGRAMADO","31/03/2026"]
+];
+
+function renderTable(){
+    const tbody = document.querySelector("#courseTable tbody");
+    tbody.innerHTML = "";
+
+    const search = document.getElementById("searchInput").value.toLowerCase();
+    const filtered = data.filter(r => r.join(" ").toLowerCase().includes(search));
+
+    const start = (currentPage-1)*rowsPerPage;
+    const end = start + rowsPerPage;
+
+    filtered.slice(start,end).forEach(r=>{
+        const tr=document.createElement("tr");
+        r.forEach(c=>{
+            const td=document.createElement("td");
+            td.textContent=c;
+            tr.appendChild(td);
+        });
+        tbody.appendChild(tr);
+    });
+
+    renderPagination(filtered.length);
+}
+
+function renderPagination(total){
+    const pages = Math.ceil(total/rowsPerPage);
+    const pag = document.getElementById("pagination");
+    pag.innerHTML="";
+    for(let i=1;i<=pages;i++){
+        const btn=document.createElement("button");
+        btn.textContent=i;
+        btn.className=i===currentPage?"active":"";
+        btn.onclick=()=>{currentPage=i;renderTable();}
+        pag.appendChild(btn);
+    }
+}
+
+document.getElementById("searchInput").onkeyup=()=>{currentPage=1;renderTable();};
+renderTable();
+</script>
+</body>
+</html>
